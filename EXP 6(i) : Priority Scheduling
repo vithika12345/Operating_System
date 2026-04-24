@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, time = 0, completed = 0, idx, min;
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    int at[n], bt[n], pr[n], ct[n], tat[n], wt[n], done[n];
+
+    // Input
+    for(i = 0; i < n; i++) {
+        printf("P%d AT: ", i+1);
+        scanf("%d", &at[i]);
+        printf("P%d BT: ", i+1);
+        scanf("%d", &bt[i]);
+        printf("P%d Priority: ", i+1);
+        scanf("%d", &pr[i]);
+        done[i] = 0;
+    }
+
+    // Scheduling
+    while(completed < n) {
+        min = 9999;
+        idx = -1;
+
+        for(i = 0; i < n; i++) {
+            if(at[i] <= time && done[i] == 0) {
+                if(pr[i] < min) {
+                    min = pr[i];
+                    idx = i;
+                }
+            }
+        }
+
+        if(idx != -1) {
+            time += bt[idx];
+            ct[idx] = time;
+            done[idx] = 1;
+            completed++;
+        } else {
+            time++; // CPU idle
+        }
+    }
+
+    // Calculate TAT & WT
+    float avg_tat = 0, avg_wt = 0;
+
+    printf("\nP\tAT\tBT\tPR\tCT\tTAT\tWT\n");
+    for(i = 0; i < n; i++) {
+        tat[i] = ct[i] - at[i];
+        wt[i] = tat[i] - bt[i];
+
+        avg_tat += tat[i];
+        avg_wt += wt[i];
+
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
+               i+1, at[i], bt[i], pr[i], ct[i], tat[i], wt[i]);
+    }
+
+    printf("\nAverage TAT = %.2f", avg_tat/n);
+    printf("\nAverage WT = %.2f\n", avg_wt/n);
+
+    return 0;
+}
