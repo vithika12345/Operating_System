@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Enter your name:"
+read name
+
+echo "Hello $name"
+
+echo "Current Date:"
+date
+
+echo "Files in directory:"
+ls
+
+
+
+
+
+// run script
+chmod +x script1.sh
+./script1.sh
