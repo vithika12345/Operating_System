@@ -1,0 +1,23 @@
+pwd – Shows current working directory
+ls – Lists files and folders
+cd – Changes directory
+mkdir – Creates a new directory
+rmdir – Removes an empty directory
+rm – Deletes files or folders
+cp – Copies files or directories
+mv – Moves or renames files
+cat – Displays file content
+head – Shows first few lines of a file
+tail – Shows last few lines of a file
+less – Views file page by page
+ps – Shows running processes
+top – Displays live process activity
+kill – Terminates a process
+whoami – Shows current user
+date – Displays current date and time
+uname – Shows system information
+grep – Searches text in files
+find – Finds files in directories
+echo – Prints text on screen
+clear – Clears terminal screen
+history – Shows previous commands
