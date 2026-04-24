@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Enter a number:"
+read num
+
+if [ $((num % 2)) -eq 0 ]
+then
+    echo "Number is Even"
+else
+    echo "Number is Odd"
+fi
+
+
+// to run script
+chmod +x script.sh
+./script.sh
